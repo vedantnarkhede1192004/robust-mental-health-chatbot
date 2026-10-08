@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mind Companion</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <div class="app" id="app">
+
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-top">
+        <div class="brand"><span class="brand-star">✦</span> Mind Companion</div>
+        <button type="button" id="sidebarToggle" class="icon-btn" aria-label="Toggle sidebar">☰</button>
+      </div>
+
+      <button id="newChat" type="button" class="side-item active">✎ <span>New chat</span></button>
+
+      <div class="side-label">Topics</div>
+      <nav class="topics" id="topics">
+        <button type="button" data-topic="stress" class="side-item">Stress</button>
+        <button type="button" data-topic="anxiety" class="side-item">Anxiety</button>
+        <button type="button" data-topic="low_mood" class="side-item">Low mood</button>
+        <button type="button" data-topic="loneliness" class="side-item">Loneliness</button>
+        <button type="button" data-topic="sleep" class="side-item">Sleep</button>
+        <button type="button" data-topic="anger" class="side-item">Anger</button>
+        <button type="button" data-topic="relationships" class="side-item">Relationships</button>
+        <button type="button" data-topic="self_esteem" class="side-item">Self-esteem</button>
+        <button type="button" data-topic="grief" class="side-item">Grief</button>
+      </nav>
+
+      <div class="side-label">Tools</div>
+      <section class="tools">
+        <button type="button" id="breatheBtn" class="side-item">🌬 <span>Breathing exercise</span></button>
+        <button type="button" id="groundBtn" class="side-item">🌿 <span>Grounding (5-4-3-2-1)</span></button>
+      </section>
+
+      <p class="disclaimer">An AI companion for stress, anxiety and low mood. Not a replacement for professional help.</p>
+    </aside>
+
+    <!-- Main -->
+    <main class="chat empty" id="chat">
+      <button type="button" id="sidebarOpen" class="icon-btn mobile-menu" aria-label="Open sidebar">☰</button>
+
+      <div id="crisisBanner" class="crisis hidden">
+        If you are in immediate danger, call 112. In India you can also call Tele-MANAS at 14416 (free, 24/7).
+      </div>
+
+      <section id="messages" class="messages" aria-live="polite"></section>
+
+      <div class="hero" id="hero">
+        <h1>Ready when you are</h1>
+        <section class="mood-bar">
+          <span>How are you feeling today?</span>
+          <div id="moodButtons" class="mood-buttons">
+            <button type="button" data-score="1" title="Very low">😞</button>
+            <button type="button" data-score="2" title="Low">😕</button>
+            <button type="button" data-score="3" title="Okay">😐</button>
+            <button type="button" data-score="4" title="Good">🙂</button>
+            <button type="button" data-score="5" title="Great">😊</button>
+          </div>
+        </section>
+      </div>
+
+      <footer class="composer">
+        <textarea id="input" rows="1" maxlength="2000" placeholder="Type what is on your mind..."></textarea>
+        <button id="send" type="button" aria-label="Send">➤</button>
+      </footer>
+    </main>
+  </div>
+
+  <div id="breathOverlay" class="overlay hidden">
+    <div class="overlay-card">
+      <h2>Slow breathing</h2>
+      <div id="breathCircle" class="breath-circle"><span id="breathText">Get ready</span></div>
+      <p class="muted">Breathe in for 4, hold for 4, breathe out for 6. Repeat a few times.</p>
+      <button type="button" id="breathClose">Done</button>
+    </div>
+  </div>
+
+  <script src="/static/script.js"></script>
+</body>
+</html>
